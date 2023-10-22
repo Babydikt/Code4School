@@ -10,12 +10,16 @@
             }
             td, tr, th{
                 border: 1px solid black;
+                padding: 2px;
             }
             th{
                 background-color: red;
             }
-            .tdNoBorder{
-                border:none;
+            .tdNoBorderleft{
+                border-left: none;
+            }
+            .tdNoBorderright{
+                border-right: none;
             }
         </style>
     </head>
@@ -25,17 +29,17 @@
                 <th colspan="3">Artikel Monitor</th>
             </tr>
             <tr>
-                <td>Größe</td>
-                <td class="tdNoBorder">24</td>
+                <td class="tdNoBorderright">Größe</td>
+                <td class="tdNoBorderleft">24</td>
                 <td rowspan="3"><img src="monitor.png" alt="Monitorbild" title="monitor"></td>
             </tr>
             <tr>
-                <td>Schnitstellen</td>
-                <td class="tdNoBorder">HDMI, DP</td>
+                <td class="tdNoBorderright">Schnitstellen</td>
+                <td class="tdNoBorderleft">HDMI, DP</td>
             </tr>
             <tr>
-                <td>Auflösung</td>
-                <td style="border: none;">1920 x 1440</td>
+                <td class="tdNoBorderright">Auflösung</td>
+                <td class="tdNoBorderleft">1920 x 1440</td>
             </tr>
 
         </table>
