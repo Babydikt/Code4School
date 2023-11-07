@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <title>Formularantwort</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+      #vcard
+      {
+        position:relative;
+        margin:20px auto;
+        padding:10px;
+        background-color:#f0f0f0;
+        color:#202040;
+        width:425px;
+        height:260px;
+        
+        font-family:Arial,sans-serif;
+      }
+      p
+      {
+        margin:0px;
+      }
+      #name
+      {
+        position:absolute;
+        left:180px;
+        top:30px;
+        font-weight:bold;
+        font-size:120%;
+      }
+      #name p:first-child,  #name p:last-child 
+      {
+        font-weight:lighter;
+        font-size:100%;
+      }
+      #contact
+      {
+        position:absolute;
+        left:180px;
+        top:125px;
+        font-weight:bolder;
+        font-size:80%;
+      }
+      #firma
+      {
+        position:absolute;
+        left:20px;
+        top:185px;
+        font-weight:bolder;
+        font-size:80%;
+      }
+      #companycontact
+      {
+        position:absolute;
+        left:180px;
+        top:185px;
+        font-weight:bolder;
+        font-size:80%;
+      }
+    </style>
+  </head>
+
+  <body text="#202040" bgcolor="#A0A0B0">
+  
+    <div id="vcard">
+      <img id="logo" width="150px" src="" alt="Logo">
+      <div id="name"></div>
+      <div id="funktion"></div>
+      <div id="contact"></div>
+      <div id="firma"></div>
+      <div id="companycontact"></div>
+    </div>
+  
+  
+    <script  type="text/javascript" language="javascript">
+    var query = location.search;
+    var tmp;
+    var pos;
+    var paare = new Array();
+    var p = new Array();
+
+    if(query.length > 0)
+    {
+      query = query.substr(1, query.length-1); // ? entfernen
+      paare = query.split("&");
+      for (i=0; i<paare.length; i++)
+      {
+        p[i]=decodeURIComponent(paare[i]).split("=");
+        
+        while((pos=p[i][1].indexOf("+",pos+1)) > -1)
+        {
+          tmp = p[i][1].substring(0,pos);
+          p[i][1] = tmp + " " + p[i][1].substring(pos+1, p[i][1].length);
+        }
+      }
+      
+      if (p[paare.length-1][0] != "SendOK")
+      {
+        document.writeln("Keine Datenverarbeitung da kein Einverständnis vorliegt!");
+      }
+      else
+      {
+        var index;
+        index = 0;
+        while(p[index][0] != "name")
+          index++;
+        tmp = "<p>" + p[index+2][1] + "<\/p><p>" + p[index+1][1] + " " + 
+              p[index][1] + "<\/p><p>" + p[index+3][1] + "<\/p>";   
+        document.getElementById("name").innerHTML = tmp;
+  
+        index = 0;
+        while(p[index][0] != "durchwahl")
+          index++;
+        tmp = "Telefon: "+ p[index][1] + "<br> E-Mail: " + p[index+1][1];  
+        document.getElementById("contact").innerHTML = tmp;
+  
+        index=0;
+        tmp = "<p>" + p[index+0][1] + "<\/p><p>" + p[index+1][1] + "<\/p><p>" + 
+              p[index+2][1] + " " + p[index+3][1] + "<\/p>";   
+        document.getElementById("firma").innerHTML = tmp;
+  
+        index=0;
+        while(p[index][0] != "telefon")
+          index++;
+        tmp = "<p>Zentrale: " + p[index+0][1] + "<\/p><p>Fax: " + p[index+1][1] + 
+              "<\/p><p>WWW: " + p[index+2][1];   
+        document.getElementById("companycontact").innerHTML = tmp;
+  
+        index = 0;
+        while(p[index][0] != "logo")
+          index++;
+        switch(parseInt(p[index][1]))
+        {
+           case 0:
+               tmp = "../images/vCardLogos/nologo.gif";
+               break;
+           case 1:
+               tmp = "../images/vCardLogos/logo-holzhandwerk.gif";
+               break;
+           case 2:
+               tmp = "../images/vCardLogos/logo-metallhandwerk.gif";
+               break;
+           case 3:
+               tmp = "../images/vCardLogos/logo-farbhandwerk.gif";
+               break;
+           case 4:
+               tmp = "../images/vCardLogos/logo-elektrohandwerk.gif";
+               break;
+           case 5:
+               tmp = "../images/vCardLogos/logo-gesundheit.gif";
+               break;
+           case 6:
+               tmp = "../images/vCardLogos/logo-pc-tech.gif";
+               break;
+           default:
+               tmp = "<p> Ihre Statusangabe konnte keinem gültigen Wert zugeordnet werden!<\/p>";
+               break;
+        }
+        document.getElementById("logo").src = tmp;
+
+        index = 0;
+        while(p[index][0] != "anzahl")
+          index++;
+        var anzahl = parseInt(p[index][1]); 
+        index = 0;
+        while(p[index][0] != "name")
+          index++;
+        tmp = "<p align=\"center\">Hallo, " + p[index+1][1] + " " + p[index][1] + "<br>" + 
+              " Sie möchten " + anzahl + " Exemplare dieser Visitenkarte<\/p>";
+        document.writeln(tmp);
+          
+          
+      }
+      
+      /*
+      tmp = "<h2>Hallo, " + p[1][1] + " " + p[0][1] + "<\/h2>";
+      document.writeln(tmp);
+      
+      tmp = "<p> Sie wohnen " + p[2][1] + " " + p[3][1] + " in " + 
+             p[4][1] + " " + p[5][1] + "<\/p>";
+      document.writeln(tmp);
+
+      var k = 6;
+      if (0 <= p[k][0].indexOf("status"))
+      {
+        switch(parseInt(p[k][1]))
+        {
+           case 0:
+               tmp = "<p> Sie sind derzeit in ungekündigter Stellung.<\/p>";
+               break;
+           case 1:
+               tmp = "<p> Sie sind kurzfristig verfügbar, z.B. nach Ablauf einer Kündigungsfrist.<\/p>";
+               break;
+           case 2:
+               tmp = "<p> Sie sind seit weniger als einem Jahr ohne Anstellung.<\/p>";
+               break;
+           case 3:
+               tmp = "<p> Sie sind länger als ein Jahr ohne Anstellung.<\/p>";
+               break;
+           default:
+               tmp = "<p> Ihre Statusangabe konnte keinem gültigen Wert zugeordnet werden!<\/p>";
+               break;
+        }
+        document.writeln(tmp);
+        k++;
+      }
+      tmp = "<p> Als gelernte(r) " + p[k][1] + " m&ouml;chten Sie bei uns als "
+              + p[k+1][1] + " t&auml;tig werden. <br \/>Wir werden uns in K&uuml;rze " +
+              "mit Ihnen in Verbindung setzen. <br \/>" + 
+              "Vielen Dank f&uuml;r Ihre Anfrage <br \/><br \/>" +
+              "<strong>T.I.P. Zeitarbeit<\/strong><\/p>";
+      document.writeln(tmp);
+      */
+      document.writeln("<h3>Debug:<\/h3><p>");
+      for (k=0; k < p.length; k++)
+      {
+        tmp = p[k][0] + " : " + p[k][1] + "<br \/>";
+        document.writeln(tmp);
+      }
+      document.writeln("<\/p>")
+    }
+    </script>
+    <br />
+    <br />
+    <a href="start.html" target="maincontent">Startseite</a>
+  </body>
+</html>

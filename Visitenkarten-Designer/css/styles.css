@@ -1,0 +1,69 @@
+body
+{
+  margin:20px auto;
+  width:900px;
+  color:#223355;
+  font-family:Helvetica,Arial,sans-serif;
+  
+  background-color:#223355;
+  /* Hintergrundbild foggy-blue.jpg aus images/decoration */
+}
+
+div.main
+{
+  /* Hintergrundfarbe hellblau, R:AB G:CD B:EF
+     Innenabstand 
+         oben/unten 20 Pixel
+         links/rechts 15 Pixel
+  */       
+}
+
+.centered
+{
+  /* Textausrichutng zentriert */
+}
+
+form table td
+{
+  /* Tabellenzellen innerhalb des Formulars
+     220 Pixel breit
+     Innenabstand ringsum 3 Pixel
+  */
+} 
+
+form table td.right
+{
+  /* Tabellenzellen innerhalb des Formulars der Klasse right:
+     140 Pixel breit
+     Textausrichtung rechts
+  */
+}
+
+form table td.topalign
+{
+  /* Tabellenzellen innerhalb des Formulars der Klasse topalign:
+     vertikale Textausrichtung oben
+  */
+}
+
+form fieldset
+{ 
+  /* Gruppierungsboxen im Formular:
+     Ausßenabstand nach unten 5 Pixel
+  */
+}
+
+/* 
+   nur noch nicht besuchte Links sollen unterstrichen sein
+   aktive und ausgewählte (focus, hover) Links sollen fett sein
+   Farben
+                                 Text               Hintergrund
+   - Link                     12,5%R 25%G 75%B    75% grau (75% Helligkeit)
+   - besuchter Link           12,5%R 20%G 40%B    75% grau (75% Helligkeit)
+   - Link mit Eingabe-        50%R  50%G 100%B    25% grau (25% Helligkeit)
+     focus bzw. 
+     überlagertem 
+     Mauszeiger
+   - aktiver link             100%R 50%G 50%B    75% grau
+             
+*/
