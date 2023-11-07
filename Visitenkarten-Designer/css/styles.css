@@ -7,6 +7,7 @@ body
   
   background-color:#223355;
   /* Hintergrundbild foggy-blue.jpg aus images/decoration */
+  background-image: url(../images/decoration/foggy-blue.jpg);
 }
 
 div.main
@@ -25,6 +26,12 @@ div.main
 {
   /* Textausrichutng zentriert */
   text-align: center;
+}
+
+img
+{
+  max-width: 150px;
+  align-items: center;
 }
 
 form table td
