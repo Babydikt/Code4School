@@ -5,6 +5,11 @@
      soll die Titelzeile "Visitenkartendesigner" lauten -->
 <!DOCTYPE HTML>
 <html lang="de">
+  <meta charset="utf-8">
+  <title>Visitenkartendesigner</title>
+  <head>
+    <link rel="stylesheet" href="../css/styles.css">
+  </head>
         <!-- Hintergrundbild, Schrift-, Text-, Tabellen- und 
           Linkformate aus dem zentralen CSS-File -->
 
@@ -39,5 +44,24 @@
              Richten Sie sich bei der Benennung der Formularelemente nach dem
              Screenshot mit der Visitenkartenvorschau und den Debug-Ausgaben.
         -->
+        <body>
+          <div class="main">
+            <b>Füllen Sie das nachstehende Formular aus, um unseren Newsletter zu erhalten</b>
+
+            <fieldset name="Angaben zur Firma">
+              <table>
+                <tr>
+                  <td>Firmenname<input type="text" name="Ihr Firmenname" id="firmenname"></td>
+                  <td>Straße/Hausnr.<input type="text" name="Strasse und Hausnummer" id="strasse"></td>
+                </tr>
+                <tr>
+                  <td>Postleitzahl<input type="number" name="00000" maxlength="5" id="plz"></td>
+                  <td>Ort<input type="text" name="Ort" id="ort"></td>
+                </tr>
+              </table>
+
+            </fieldset>
+          </div>
+        </body>
 
 </html>

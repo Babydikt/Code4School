@@ -40,6 +40,8 @@ form table td
      220 Pixel breit
      Innenabstand ringsum 3 Pixel
   */
+  width: 220px;
+  padding: 3px;
 } 
 
 form table td.right
@@ -48,6 +50,8 @@ form table td.right
      140 Pixel breit
      Textausrichtung rechts
   */
+  width: 140px;
+  text-align: right;
 }
 
 form table td.topalign
@@ -62,6 +66,7 @@ form fieldset
   /* Gruppierungsboxen im Formular:
      Ausßenabstand nach unten 5 Pixel
   */
+  margin-bottom: 5px;
 }
 
 /* 
