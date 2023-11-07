@@ -15,12 +15,16 @@ div.main
      Innenabstand 
          oben/unten 20 Pixel
          links/rechts 15 Pixel
-  */       
+  */
+  background-color: #abcdef;
+  padding: 20px 15px 20px 15px;
+  
 }
 
 .centered
 {
   /* Textausrichutng zentriert */
+  text-align: center;
 }
 
 form table td
