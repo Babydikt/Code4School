@@ -59,6 +59,7 @@ form table td.topalign
   /* Tabellenzellen innerhalb des Formulars der Klasse topalign:
      vertikale Textausrichtung oben
   */
+  vertical-align: top;
 }
 
 form fieldset
