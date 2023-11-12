@@ -48,7 +48,7 @@
           <div class="main">
             <b>Füllen Sie das nachstehende Formular aus, um unseren Newsletter zu erhalten</b>
 
-            <form action="">
+            <form action="formtest.html" method="get">
               <fieldset title="Angaben zur Firma">
                 <table>
                   <tr>
@@ -91,9 +91,9 @@
                 </tr>
                 <tr>
                   <td class="right">direkte Durchwahl</td>
-                  <td><input type="text" name="direkteDurchwahl" id="direkteDurchwahl"></td>
+                  <td><input type="text" name="direkteDurchwahl" id="durchwahl"></td>
                   <td class="right">E-Mail</td>
-                  <td><input type="text" name="E-Mail" id="E-Mail"></td>
+                  <td><input type="text" name="E-Mail" id="contact"></td>
                 </tr>
               </table>
             </fieldset>
@@ -117,11 +117,10 @@
                   <label for="logo-pc-tech">IT-Bereich</label>
                   </td>
                   <td class="right topalign">Anzahl</td>
-                  <td class="topalign"><select name="Anzahl" id="Anzahl">
+                  <td class="topalign"><select name="Anzahl" id="anzahl">
                     <option value="100">100</option>
-                    <option value="200">200</option>
-                    <option value="300">300</option>
-                    <option value="400">400</option>
+                    <option value="200">50</option>
+                    <option value="300">250</option>
                     <option value="500">500</option>
                   </select></td>
                 </tr>
@@ -130,10 +129,8 @@
             <div class="centered" >
             <input type="checkbox" name="agb" id="agb">
             <label for="agb">Ich bin mit der Übermittlung meine Daten einverstanden</label><br>
-            <input type="button" value="Absenden">
-            <label for="Absenden">Absenden</label>
-            <input type="button" value="Zurücksetzen">
-            <label for="Zurücksetzen">Zurücksetzen</label>
+            <input type="submit" value="Absenden" id="SendOK">
+            <input type="submit" value="Zurücksetzen" id="SendNo">
             </div>
           </form>
           </div>
